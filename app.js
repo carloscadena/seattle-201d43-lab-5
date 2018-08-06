@@ -70,27 +70,28 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  var newArr = sumArr.slice();
   var sentence = '';
-  for(var i = 0; i <= (sumArr.length - 1); i++){
-    sentence += sumArr[i];
-    if (i < sumArr.length - 1){
+  for(var i = 0; i <= (newArr.length - 1); i++){
+    sentence += newArr[i];
+    if (i < newArr.length - 1){
       sentence += ',';
     }
   }
   var total;
-  while(sumArr.length > 1){
-    if(sumArr.length === 1){
+  while(newArr.length > 1){
+    if(newArr.length === 1){
       break;
     }
-    total = sum(sumArr.pop(), sumArr.pop())[0];
-    sumArr.push(total);  
+    total = sum(newArr.pop(), newArr.pop())[0];
+    newArr.push(total);
   }
+
   var endSentence = sentence + ' was passed in as an array of numbers, and ' + total + ' is their sum.';
   return [total, endSentence];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
-console.log(sumArray(testArray));
 testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -107,13 +108,30 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+  var sentence = '';
+  var newArr = multArr.slice();
+  for(var i = 0; i <= (newArr.length - 1); i++){
+    sentence += newArr[i];
+    if (i < newArr.length - 1){
+      sentence += ',';
+    }
+  }
+  var total;
+  while(newArr.length > 1){
+    if(newArr.length === 1){
+      break;
+    }
+    total = multiply(newArr.pop(), newArr.pop())[0];
+    newArr.push(total);
+  }
+  var endSentence = 'The numbers ' + sentence + ' have a product of ' + total + '.';
+  return [total, endSentence];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
+// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
 // You're done! Submit the link to the repo following the instructions in Canvas. Or, try out the stretch goal below...
 
